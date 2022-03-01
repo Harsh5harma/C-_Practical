@@ -1,0 +1,3 @@
+/home/harsh/CLionProjects/C-_Practical/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/harsh/CLionProjects/C-_Practical/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/harsh/CLionProjects/C-_Practical/cmake-build-debug/CMakeFiles/C__Practical.dir
