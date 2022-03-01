@@ -68,31 +68,89 @@ void removeDuplicates(int array[],int keyArray[],int size)
     }
     std::cout<<'\n';
 }
-int main()
+int Max(int array[],int size)
 {
-    int array[100];
-    int size{};
-    std::cout<<"Enter the size of the array: ";
-    std::cin>>size;
-    int max{0}, min{0};
-    //inputting array and finding max/min;
+    int max{array[0]};
     for (int i{0};i<size;++i)
     {
-        std::cin>>array[i];
         if (array[i]>max)
             max = array[i];
+    }
+    return max;
+}
+int Min(int array[],int size)
+{
+    int min{array[0]};
+    for (int i{0};i<size;++i)
+    {
         if (array[i]<min)
             min = array[i];
     }
+    return min;
+}
+void createArray(int array[],int size)
+{
+    std::cout<<"Enter Array Elements: ";
+    for (int i{0};i<size;++i)
+    {
+        std::cin>>array[i];
+    }
+}
+void printMenu()
+{
+    std::cout<<"Choose your option: \n";
+    std::cout<<"0)Enter 00 to exit.\n"
+               "1) Print the even-valued elements\n"
+               "2) Print the odd-valued elements\n"
+               "3) Calculate and print the sum and average of the elements of array\n"
+               "4) Print the maximum and minimum element of array\n"
+               "5) Remove the duplicates from the array\n"
+               "6) Print the array in reverse order\n"
+               "7)Enter 7 to Create new array. \n";
+}
 
-    int valueKeyArray[max+1];
-    printEven(array,size);
-    printOdd(array,size);
-    sumAndAvg(array,size);
-    std::cout<<"The max and min of the array are: "<<max<<" "<<min<<'\n';
-    printReverse(array,size);
-    removeDuplicates(array,valueKeyArray,size);
+int main()
+{
+  int array[1000];
+  int size{};
+  std::cout<<"Enter size of the array: ";
+  std::cin>>size;
+  createArray(array,size);
+  int min{Min(array,size)}, max{Max(array,size)};
+  int keyArray[1000]{0};
 
-    return 0;
+  printMenu();
+  int option{};
+  std::cout<<"Select option: ";
+  std::cin>>option;
+
+  while (true)
+  {
+      if (option ==1)
+          printEven(array,size);
+      else if (option==2)
+          printOdd(array,size);
+      else if (option == 3)
+          sumAndAvg(array,size);
+      else if (option==4)
+          std::cout<<"The maximum element in the array is: "<<max<<"\nThe minimum element is: "<<min<<'\n';
+      else if (option==5)
+          removeDuplicates(array,keyArray,size);
+      else if (option == 6)
+          printReverse(array,size);
+      else if (option==00)
+          break;
+      else if (option==7)
+      {
+          std::cout<<"Enter size of new array: ";
+          std::cin>>size;
+          createArray(array,size);
+          std::cout<<"New array made...\n";
+      }
+
+      std::cout<<"\nEnter next option: ";
+      std::cin>>option;
+  }
+  return 0;
 }
 
