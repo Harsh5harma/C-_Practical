@@ -38,7 +38,7 @@ public:
         double area = sqrt(s*(s-m_a)*(s-m_b)*(s-m_c));
         return area;
     }
-    Triangle operator=(Triangle t)
+    Triangle& operator=(Triangle t)
     {
         m_a = t.m_a;
         m_b = t.m_b;
