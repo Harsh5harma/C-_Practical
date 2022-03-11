@@ -11,7 +11,7 @@ private:
     int m_col{};
     U **matrix;
 public:
-    Matrix(int col, int row) : m_row{row}, m_col{col}
+    Matrix(int row, int col) : m_row{row}, m_col{col}
     {
         matrix = new U*[m_row];
 
